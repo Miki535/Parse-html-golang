@@ -26,13 +26,13 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			fmt.Println(err)
 		}
+		result := string(body)
 		data := struct {
 			Result string
 		}{
-			Result: string(body),
+			Result: result,
 		}
 		tpl.Execute(w, data)
-		return
 	}
 	tpl.Execute(w, nil)
 }
